@@ -21,3 +21,7 @@ LMSTUDIO_MODEL = get_env_var("LMSTUDIO_MODEL")
 LMSTUDIO_API_URL = get_env_var("LMSTUDIO_API_URL")
 
 API_URL = get_env_var("API_URL")
+
+LOGSTASH_URL = os.getenv("LOGSTASH_URL", "localhost:5000")
+LOGSTASH_TOKEN = os.getenv("LOGSTASH_TOKEN", "xxx")
+LOGSTASH_ENV = os.getenv("LOGSTASH_ENV", "dev")
