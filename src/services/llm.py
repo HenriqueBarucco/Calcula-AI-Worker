@@ -38,7 +38,7 @@ async def perform_lmstudio_image_extraction(image_bytes: bytes) -> Dict[str, Any
 
     headers = {"Content-Type": "application/json"}
 
-    async with httpx.AsyncClient(timeout=30) as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(30.0)) as client:
         resp = await client.post(url, json=payload, headers=headers)
         resp.raise_for_status()
         data = resp.json()

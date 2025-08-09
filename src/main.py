@@ -7,12 +7,15 @@ from business.process import process
 from config.env import (
     RABBITMQ_URL,
     QUEUE_NAME,
-    EXCHANGE_NAME
+    EXCHANGE_NAME,
+    PRE_FETCH_COUNT,
 )
 
 async def main() -> None:
     connection = await aio_pika.connect_robust(RABBITMQ_URL)
     channel = await connection.channel(publisher_confirms=True)
+
+    await channel.set_qos(prefetch_count=PRE_FETCH_COUNT)
 
     exchange = await channel.declare_exchange(
         EXCHANGE_NAME, aio_pika.ExchangeType.DIRECT, passive=True

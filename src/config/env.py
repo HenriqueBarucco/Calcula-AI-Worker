@@ -21,6 +21,7 @@ PARKING_LOT_ROUTING_KEY = os.getenv("PARKING_LOT_ROUTING_KEY")
 
 WAIT_TTL_MS = int(os.getenv("WAIT_TTL_MS", "30000"))
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
+PRE_FETCH_COUNT = int(os.getenv("PRE_FETCH_COUNT", "1"))
 
 MINIO_ENDPOINT = get_env_var("MINIO_ENDPOINT")
 MINIO_ACCESS_KEY = get_env_var("MINIO_ACCESS_KEY")
