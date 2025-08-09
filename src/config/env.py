@@ -12,6 +12,16 @@ def get_env_var(name: str) -> str:
 RABBITMQ_URL = get_env_var("RABBITMQ_URL")
 QUEUE_NAME = get_env_var("QUEUE_NAME")
 
+WAIT_QUEUE_NAME = os.getenv("WAIT_QUEUE_NAME")
+PARKING_LOT_QUEUE_NAME = os.getenv("PARKING_LOT_QUEUE_NAME")
+
+EXCHANGE_NAME = os.getenv("EXCHANGE_NAME")
+WAIT_ROUTING_KEY = os.getenv("WAIT_ROUTING_KEY")
+PARKING_LOT_ROUTING_KEY = os.getenv("PARKING_LOT_ROUTING_KEY")
+
+WAIT_TTL_MS = int(os.getenv("WAIT_TTL_MS", "30000"))
+MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
+
 MINIO_ENDPOINT = get_env_var("MINIO_ENDPOINT")
 MINIO_ACCESS_KEY = get_env_var("MINIO_ACCESS_KEY")
 MINIO_SECRET_KEY = get_env_var("MINIO_SECRET_KEY")
